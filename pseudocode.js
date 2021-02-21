@@ -19,30 +19,18 @@ const hiddenword = document.querySelector('.hiddenword');
 const wordSpace = document.createElement('div');
 
 charactersButton.addEventListener('click', (event) => {
-	const randomWord = assignAWord(characters, duplicateCharacters);
-	let assignedWord = randomWord[2];
-	wordSpace.innerHTML = assignedWord;
-	hiddenword.appendChild(wordSpace);
+	appendWord(characters, duplicateCharacters);
 });
-// movieButton.addEventListener('click', (event) => {
-// 	const movie = getRandomWord(movies);
-// });
-// princessesButton.addEventListener('click', (event) => {
-// 	const princess = getRandomWord(princesses);
-// });
-// countriesButton.addEventListener('click', (event) => {
-// 	const country = getRandomWord(countries);
-// });
-// function getRandomWord(arr) {
-// 	let randomIndex = Math.floor(Math.random() * arr.length);
-// 	return arr[randomIndex];
-// }
-// function preventDuplicate(arr, word, newArr) {
-// 	newArr.push(word);
-// 	arr.splice(arr.indexOf(word), 1);
+movieButton.addEventListener('click', (event) => {
+	appendWord(movies, duplicateMovies);
+});
+princessesButton.addEventListener('click', (event) => {
+	appendWord(princesses, duplicatePrincesses);
+});
+countriesButton.addEventListener('click', (event) => {
+	appendWord(countries, duplicateCountries);
+});
 
-// console.log(arr, newArr);
-// }
 function assignAWord(arr, newArr) {
 	if (arr.length == 1) {
 		rword = arr.pop();
@@ -60,39 +48,45 @@ function assignAWord(arr, newArr) {
 		arr.splice(arr.indexOf(rword), 1);
 		return [arr, newArr, rword];
 	}
-	// hiddenword.appendChild(wordSpace)
+}
+function appendWord(arr, newArr) {
+	let assignedWord = assignAWord(arr, newArr)[2];
+	wordSpace.innerHTML = assignedWord;
+	hiddenword.appendChild(wordSpace);
 }
 
-//testing
-let test = [2, 7, 9, 10];
-let newTes = [];
-console.log(test, newTes);
-//1
-res = assignAWord(test, newTes);
-test = res[0];
-newTes = res[1];
-random = res[2];
-console.log(test, newTes, random);
-//2
-res = assignAWord(test, newTes);
-test = res[0];
-newTes = res[1];
-console.log(test, newTes);
-//3
-res = assignAWord(test, newTes);
-test = res[0];
-newTes = res[1];
-console.log(test, newTes);
-//4
-res = assignAWord(test, newTes);
-test = res[0];
-newTes = res[1];
-console.log(test, newTes);
+// hiddenword.appendChild(wordSpace)
 
-res = assignAWord(test, newTes);
-test = res[0];
-newTes = res[1];
-console.log(test, newTes);
+//testing
+// let test = [2, 7, 9, 10];
+// let newTes = [];
+// console.log(test, newTes);
+// //1
+// res = assignAWord(test, newTes);
+// test = res[0];
+// newTes = res[1];
+// random = res[2];
+// console.log(test, newTes, random);
+// //2
+// res = assignAWord(test, newTes);
+// test = res[0];
+// newTes = res[1];
+// console.log(test, newTes);
+// //3
+// res = assignAWord(test, newTes);
+// test = res[0];
+// newTes = res[1];
+// console.log(test, newTes);
+// //4
+// res = assignAWord(test, newTes);
+// test = res[0];
+// newTes = res[1];
+// console.log(test, newTes);
+
+// res = assignAWord(test, newTes);
+// test = res[0];
+// newTes = res[1];
+// console.log(test, newTes);
 // assignAWord(test, newTes);
 // // //2 2
 // console.log(test, newTes);

@@ -380,4 +380,4 @@ let countries = [
 let duplicateCharacters = [];
 let duplicatePrincesses = [];
 let duplicateMovies = [];
-let duplicateMountries = [];
+let duplicateCountries = [];

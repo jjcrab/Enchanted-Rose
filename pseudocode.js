@@ -10,4 +10,102 @@
 //each round should assign a different word(s)
 */
 
-//make a list of each category
+//grab category and add eventlisteners so when click buttons computer will assign one random word(s) respectively
+const charactersButton = document.querySelector('.characters');
+const movieButton = document.querySelector('.movies');
+const princessesButton = document.querySelector('.princesses');
+const countriesButton = document.querySelector('.countries');
+const hiddenword = document.querySelector('.hiddenword');
+const wordSpace = document.createElement('div');
+
+charactersButton.addEventListener('click', (event) => {
+	const randomWord = assignAWord(characters, duplicateCharacters);
+	let assignedWord = randomWord[2];
+	wordSpace.innerHTML = assignedWord;
+	hiddenword.appendChild(wordSpace);
+});
+// movieButton.addEventListener('click', (event) => {
+// 	const movie = getRandomWord(movies);
+// });
+// princessesButton.addEventListener('click', (event) => {
+// 	const princess = getRandomWord(princesses);
+// });
+// countriesButton.addEventListener('click', (event) => {
+// 	const country = getRandomWord(countries);
+// });
+// function getRandomWord(arr) {
+// 	let randomIndex = Math.floor(Math.random() * arr.length);
+// 	return arr[randomIndex];
+// }
+// function preventDuplicate(arr, word, newArr) {
+// 	newArr.push(word);
+// 	arr.splice(arr.indexOf(word), 1);
+
+// console.log(arr, newArr);
+// }
+function assignAWord(arr, newArr) {
+	if (arr.length == 1) {
+		rword = arr.pop();
+		newArr.push(rword);
+		arr = [...newArr];
+		newArr = [];
+		return [arr, newArr, rword];
+	} else {
+		// rword = getRandomWord(arr);
+		// preventDuplicate(arr, rword, newArr);
+		// return [arr, newArr, rword];
+		let randomIndex = Math.floor(Math.random() * arr.length);
+		rword = arr[randomIndex];
+		newArr.push(rword);
+		arr.splice(arr.indexOf(rword), 1);
+		return [arr, newArr, rword];
+	}
+	// hiddenword.appendChild(wordSpace)
+}
+
+//testing
+let test = [2, 7, 9, 10];
+let newTes = [];
+console.log(test, newTes);
+//1
+res = assignAWord(test, newTes);
+test = res[0];
+newTes = res[1];
+random = res[2];
+console.log(test, newTes, random);
+//2
+res = assignAWord(test, newTes);
+test = res[0];
+newTes = res[1];
+console.log(test, newTes);
+//3
+res = assignAWord(test, newTes);
+test = res[0];
+newTes = res[1];
+console.log(test, newTes);
+//4
+res = assignAWord(test, newTes);
+test = res[0];
+newTes = res[1];
+console.log(test, newTes);
+
+res = assignAWord(test, newTes);
+test = res[0];
+newTes = res[1];
+console.log(test, newTes);
+// assignAWord(test, newTes);
+// // //2 2
+// console.log(test, newTes);
+// assignAWord(test, newTes);
+// // //1 3
+// console.log(test, newTes);
+
+// assignAWord(test, newTes);
+// // //assignedWrod = 9; newTes should have 4 numbers; test should have 4 number; and then newTes should become empty and there is a consolelog of this
+// console.log(test, newTes);
+
+// assignAWord(test, newTes);
+
+// console.log(test, newTes);
+// assignAWord(test, newTes);
+// console.log(test, newTes);

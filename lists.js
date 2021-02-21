@@ -1,6 +1,6 @@
 //lists of each category
 
-const characters = [
+let characters = [
 	'ALADDIN',
 	'ALI BABA',
 	'ALICE',
@@ -129,7 +129,7 @@ const characters = [
 	'WOODY',
 	'WOOZLES',
 ];
-const princesses = [
+let princesses = [
 	'CINDERELLA',
 	'BELLA',
 	'REPUNZEL',
@@ -143,7 +143,7 @@ const princesses = [
 	'MERIDA',
 	'MOANA',
 ];
-const movies = [
+let movies = [
 	'BEAUTY AND THE BEAST',
 	'THE LITTLE MERMAID',
 	'THE LION KING',
@@ -180,7 +180,7 @@ const movies = [
 	'WINNIE THE POOH',
 	'ROBIN HOOD',
 ];
-const countries = [
+let countries = [
 	'AFGHANISTAN',
 	'ALBANIA',
 	'ALGERIA',
@@ -377,3 +377,7 @@ const countries = [
 	'ZAMBIA',
 	'ZIMBABWE',
 ];
+let duplicateCharacters = [];
+let duplicatePrincesses = [];
+let duplicateMovies = [];
+let duplicateMountries = [];

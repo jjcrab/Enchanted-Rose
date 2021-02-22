@@ -11,17 +11,25 @@ const hiddenword = document.querySelector('.hiddenword');
 const keyboard = document.querySelector('.keyboard');
 const result = document.querySelector('.result');
 let petalAmount = 7;
+const correctLetterCount = {};
+let sumCorrectFreq = 0;
+const playAgain = document.querySelector('.restart');
+const keyboardletter = document.querySelectorAll('.keyboardletter');
 
-charactersButton.addEventListener('click', () => {
+charactersButton.addEventListener('click', (event) => {
+	event.preventDefault();
 	appendWord(characters, duplicateCharacters);
 });
 movieButton.addEventListener('click', (event) => {
+	event.preventDefault();
 	appendWord(movies, duplicateMovies);
 });
 princessesButton.addEventListener('click', (event) => {
+	event.preventDefault();
 	appendWord(princesses, duplicatePrincesses);
 });
 countriesButton.addEventListener('click', (event) => {
+	event.preventDefault();
 	appendWord(countries, duplicateCountries);
 });
 
@@ -46,6 +54,7 @@ function appendWord(arr, newArr) {
 	chooseSaying.style.display = 'none';
 	hiddenword.innerText = ' ';
 	let assignedWord = assignAWord(arr, newArr)[2];
+	console.log(assignedWord);
 	const wordArr = assignedWord.split('');
 	wordArr.forEach((letter) => {
 		const span = document.createElement('span');
@@ -56,34 +65,68 @@ function appendWord(arr, newArr) {
 		} else {
 			span.classList.add('underline');
 		}
+
+		//keyboard button - show right letter in the space
 		keyboard.addEventListener('click', (event) => {
-			const letter = event.target.dataset.letter;
-			if (span.innerText == letter) {
-				span.classList.add('showup');
-				event.target.classList.add('turnred');
-			}
-			if (span.innerText !== letter) {
-				event.target.classList.add('turngrey');
+			event.preventDefault();
+			if (event.target.classList.contains('keyboardletter')) {
+				const letter = event.target.dataset.letter;
+				if (span.innerText == letter) {
+					span.classList.add('showup');
+				}
 			}
 		});
+
+		word.appendChild(hiddenword);
+		hiddenword.classList.add('hidden');
 	});
-	word.appendChild(hiddenword);
-	hiddenword.classList.add('hidden');
 }
 
+//Showing result and finish game condition
 keyboard.addEventListener('click', (event) => {
-	const letter = event.target.dataset.letter;
-	const hiddenText = hiddenword.innerText;
-	if (!hiddenText.includes(letter)) {
-		if (petalAmount > 1) {
-			petalAmount = petalAmount - 1;
+	event.preventDefault();
+	if (event.target.classList.contains('keyboardletter')) {
+		//counting petals left and game over condition and keyboard change color
+		const letter = event.target.dataset.letter;
+		const hiddenText = hiddenword.innerText;
+		if (!hiddenText.includes(letter)) {
+			event.target.classList.add('turngrey');
+			console.log(event.target);
+			if (petalAmount > 1) {
+				petalAmount = petalAmount - 1;
+				result.innerText = `${petalAmount} petals left.`;
+			} else if (petalAmount == 1) {
+				result.innerText = `Game Over! Answer is: ${hiddenText}. Try Again!`;
+				playAgain.classList.remove('cssreset');
+			}
+		} else {
+			event.target.classList.add('turnred');
+			console.log(event.target);
 			result.innerText = `${petalAmount} petals left.`;
-		} else if (petalAmount == 1) {
-			result.innerText = 'Game Over! Try Again!';
 		}
-	} else {
-		result.innerText = `${petalAmount} petals left.`;
+		//winning condition
+		const hiddenTextArr = hiddenText.split('');
+		const filteredSpace = hiddenTextArr.filter((noSpace) => {
+			return noSpace != ' ';
+		});
+		const letterCount = filteredSpace.reduce((letterObj, letter) => {
+			if (!letterObj[letter]) {
+				letterObj[letter] = 1;
+			} else {
+				letterObj[letter]++;
+			}
+			return letterObj;
+		}, {});
+
+		if (letterCount[letter]) {
+			correctLetterCount[letter] = letterCount[letter];
+			sumCorrectFreq = sumCorrectFreq + correctLetterCount[letter];
+		}
+		const rightLetterAmount = Object.keys(correctLetterCount).length;
+		if (sumCorrectFreq == filteredSpace.length && petalAmount >= 1) {
+			result.innerText = "You save Beast's Rose!";
+			playAgain.innerText = 'Play Next!';
+			playAgain.classList.remove('cssreset');
+		}
 	}
 });
-
-// if(hiddenword.innerText.includes())

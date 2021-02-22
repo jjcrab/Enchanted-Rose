@@ -30,7 +30,16 @@
 	color: black;
 }
 
-.turngrey {
+.keyboard .turngrey {
 	background: grey;
 	color: darkgrey;
+}
+
+.cssreset {
+	display: none;
+}
+
+.keyboardreset {
+	background: white;
+	color: black;
 }

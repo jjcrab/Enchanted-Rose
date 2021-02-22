@@ -1,3 +1,8 @@
+.hiddenword {
+	margin: 2em;
+}
+
+/* hide the letter */
 .underline {
 	color: transparent;
 	font-family: monospace;
@@ -7,6 +12,7 @@
 	margin-left: 0.5em;
 }
 
+/* for space */
 .nounderline {
 	color: black;
 	font-family: monospace;
@@ -15,6 +21,16 @@
 	margin-left: 0.5em;
 }
 
-.hiddenword {
-	margin: 2em;
+.showup {
+	color: black;
+}
+
+.keyboard .turnred {
+	background: lightcoral;
+	color: black;
+}
+
+.turngrey {
+	background: grey;
+	color: darkgrey;
 }

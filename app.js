@@ -8,8 +8,9 @@ const countriesButton = document.querySelector('.countries');
 const chooseSaying = document.querySelector('.choosecategory');
 const word = document.querySelector('.word');
 const hiddenword = document.querySelector('.hiddenword');
+const keyboard = document.querySelector('.keyboard');
 
-charactersButton.addEventListener('click', (event) => {
+charactersButton.addEventListener('click', () => {
 	appendWord(characters, duplicateCharacters);
 });
 movieButton.addEventListener('click', (event) => {
@@ -53,6 +54,16 @@ function appendWord(arr, newArr) {
 		} else {
 			span.classList.add('underline');
 		}
+		keyboard.addEventListener('click', (event) => {
+			const letter = event.target.dataset.letter;
+			if (span.innerText == letter) {
+				span.classList.add('showup');
+				event.target.classList.add('turnred');
+			}
+			if (span.innerText !== letter) {
+				event.target.classList.add('turngrey');
+			}
+		});
 	});
 	word.appendChild(hiddenword);
 	hiddenword.classList.add('hidden');

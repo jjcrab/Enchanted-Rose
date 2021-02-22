@@ -9,6 +9,8 @@ const chooseSaying = document.querySelector('.choosecategory');
 const word = document.querySelector('.word');
 const hiddenword = document.querySelector('.hiddenword');
 const keyboard = document.querySelector('.keyboard');
+const result = document.querySelector('.result');
+let petalAmount = 7;
 
 charactersButton.addEventListener('click', () => {
 	appendWord(characters, duplicateCharacters);
@@ -68,3 +70,20 @@ function appendWord(arr, newArr) {
 	word.appendChild(hiddenword);
 	hiddenword.classList.add('hidden');
 }
+
+keyboard.addEventListener('click', (event) => {
+	const letter = event.target.dataset.letter;
+	const hiddenText = hiddenword.innerText;
+	if (!hiddenText.includes(letter)) {
+		if (petalAmount > 1) {
+			petalAmount = petalAmount - 1;
+			result.innerText = `${petalAmount} petals left.`;
+		} else if (petalAmount == 1) {
+			result.innerText = 'Game Over! Try Again!';
+		}
+	} else {
+		result.innerText = `${petalAmount} petals left.`;
+	}
+});
+
+// if(hiddenword.innerText.includes())

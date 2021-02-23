@@ -8,7 +8,7 @@
 //if guess 7 times still don't have all the correct letter, will prompt "Game Over" and "try again"
 //if have all the correct letter less than 7 times, will promt "You help the Beast save the rose!" and "next word(s)"
 //reset
-*/
 
 //Animation-rose petals
 //7 petals/7 chances to guess the word(s). Each time guess a wrong letter, one petal will fall, if a right letter, nothing will change.
+*/

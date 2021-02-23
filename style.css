@@ -44,10 +44,6 @@
 	color: darkgrey;
 }
 
-.cssreset {
-	display: none;
-}
-
 .keyboardreset {
 	background: white;
 	color: black;
@@ -77,7 +73,7 @@
 	top: 279.36px;
 }
 
-.petal2 {
+.petal4 {
 	position: absolute;
 	width: 70.58px;
 	height: 47.11px;
@@ -85,7 +81,7 @@
 	top: 299.33px;
 }
 
-.petal3 {
+.petal2 {
 	position: absolute;
 	width: 43.13px;
 	height: 37.39px;
@@ -93,7 +89,7 @@
 	top: 247.63px;
 }
 
-.petal4 {
+.petal3 {
 	position: absolute;
 	width: 75.3px;
 	height: 41.85px;
@@ -119,5 +115,30 @@
 
 .petal0Fall {
 	transform: translate3d(-25px, 200px, 0px);
+	transition: all 4s ease 1s;
+}
+
+.petal1Fall {
+	transform: translate3d(0px, 200px, 25px);
+	transition: all 4s ease 1s;
+}
+.petal2Fall {
+	transform: translate3d(-35px, 200px, 0px);
+	transition: all 4s ease 1s;
+}
+.petal3Fall {
+	transform: translate3d(0px, 200px, 35px);
+	transition: all 4s ease 1s;
+}
+.petal4Fall {
+	transform: translate3d(-10px, 200px, 0px);
+	transition: all 4s ease 1s;
+}
+.petal5Fall {
+	transform: translate3d(0px, 200px, 10px);
+	transition: all 4s ease 1s;
+}
+.petal6Fall {
+	transform: translate3d(0px, 200px, 0px);
 	transition: all 4s ease 1s;
 }

@@ -13,7 +13,7 @@ const result = document.querySelector('.result');
 let petalAmount = 7;
 const correctLetterCount = {};
 let sumCorrectFreq = 0;
-const playAgain = document.querySelector('.restart');
+const newGame = document.querySelector('.restart');
 const keyboardletter = document.querySelectorAll('.keyboardletter');
 
 charactersButton.addEventListener('click', (event) => {
@@ -95,10 +95,12 @@ keyboard.addEventListener('click', (event) => {
 			if (petalAmount > 1) {
 				petalAmount = petalAmount - 1;
 				result.innerText = `${petalAmount} petals left.`;
-				petal0.classList.add('petal0Fall');
+				petalsArray[i].classList.add(petalsClassArray[i]);
+				i++;
 			} else if (petalAmount == 1) {
 				result.innerText = `Game Over! Answer is: ${hiddenText}. Try Again!`;
-				playAgain.classList.remove('cssreset');
+				newGame.innerText = 'Try Again';
+				petalsArray[i].classList.add(petalsClassArray[i]);
 			}
 		} else {
 			event.target.classList.add('turnred');
@@ -126,19 +128,19 @@ keyboard.addEventListener('click', (event) => {
 		const rightLetterAmount = Object.keys(correctLetterCount).length;
 		if (sumCorrectFreq == filteredSpace.length && petalAmount >= 1) {
 			result.innerText = "You save Beast's Rose!";
-			playAgain.innerText = 'Play Next!';
-			playAgain.classList.remove('cssreset');
+			newGame.innerText = 'Play Next!';
 		}
 	}
 });
 
-playAgain.addEventListener('click', (event) => {
+//reset button
+newGame.addEventListener('click', (event) => {
 	event.preventDefault();
 	//text
 	chooseSaying.style.display = 'inline';
 	hiddenword.innerText = ' ';
 	result.innerText = '';
-	event.target.classList.add('cssreset');
+	event.target.innerText = 'New Game';
 	//keyboard
 	const letterButton = keyboardletter;
 	letterButton.forEach((button) => {
@@ -149,4 +151,8 @@ playAgain.addEventListener('click', (event) => {
 	console.log(letterButton);
 	sumCorrectFreq = 0;
 	petalAmount = 7;
+	petalsArray.forEach((petal) => {
+		petal.classList.remove(petal.classList[2]);
+	});
+	i = 0;
 });

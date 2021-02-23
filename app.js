@@ -27,14 +27,6 @@ const categories = [
 		categoryDataHolder: duplicateCountries,
 	},
 ];
-
-categories.forEach((category) => {
-	category.categoryButton.addEventListener('click', (event) => {
-		event.preventDefault();
-		appendWord(category.categoryData, category.categoryDataHolder);
-	});
-});
-
 const chooseSaying = document.querySelector('.choosecategory');
 const word = document.querySelector('.word');
 const hiddenword = document.querySelector('.hiddenword');
@@ -45,23 +37,18 @@ const correctLetterCount = {};
 let sumCorrectFreq = 0;
 const newGame = document.querySelector('.restart');
 const keyboardletter = document.querySelectorAll('.keyboardletter');
+let currentCategory = null;
+let currentCategoryHolder = null;
 
-// charactersButton.addEventListener('click', (event) => {
-// 	event.preventDefault();
-// 	appendWord(characters, duplicateCharacters);
-// });
-// moviesButton.addEventListener('click', (event) => {
-// 	event.preventDefault();
-// 	appendWord(movies, duplicateMovies);
-// });
-// princessesButton.addEventListener('click', (event) => {
-// 	event.preventDefault();
-// 	appendWord(princesses, duplicatePrincesses);
-// });
-// countriesButton.addEventListener('click', (event) => {
-// 	event.preventDefault();
-// 	appendWord(countries, duplicateCountries);
-// });
+//append event listener
+categories.forEach((category) => {
+	category.categoryButton.addEventListener('click', (event) => {
+		event.preventDefault();
+		appendWord(category.categoryData, category.categoryDataHolder);
+		currentCategory = category.categoryData;
+		currentCategoryHolder = category.categoryDataHolder;
+	});
+});
 
 //assign norepeat word(s)
 function assignAWord(arr, newArr) {
@@ -119,11 +106,6 @@ keyboard.addEventListener('click', (event) => {
 		//counting petals left and game over condition and keyboard change color
 		const letter = event.target.dataset.letter;
 		const hiddenText = hiddenword.innerText;
-		//default,if player doesn't choose category then will still be the same category after hitting the reset(play next/ new agame/ try again) button and assign a different word(s); if player choose another category then will assign a word(s) from different category.
-		// if(hiddenText == "") {
-
-		// }
-
 		if (!hiddenText.includes(letter)) {
 			event.target.classList.add('turngrey');
 			if (petalAmount > 1) {
@@ -171,7 +153,7 @@ newGame.addEventListener('click', (event) => {
 	event.preventDefault();
 	//text
 	chooseSaying.style.display = 'inline';
-	hiddenword.innerText = ' ';
+
 	result.innerText = '';
 	event.target.innerText = 'New Game';
 	//keyboard
@@ -187,4 +169,5 @@ newGame.addEventListener('click', (event) => {
 		petal.classList.remove(petal.classList[2]);
 	});
 	i = 0;
+	appendWord(currentCategory, currentCategoryHolder);
 });

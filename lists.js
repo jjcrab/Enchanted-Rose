@@ -381,3 +381,5 @@ let duplicateCharacters = [];
 let duplicatePrincesses = [];
 let duplicateMovies = [];
 let duplicateCountries = [];
+
+const categoriesArray = [characters, princesses, movies, countries];

@@ -2,9 +2,39 @@
 //randome word wont' repeat until the last one in category. After the last word is used, will start over get the random word from the original list again.
 
 const charactersButton = document.querySelector('.characters');
-const movieButton = document.querySelector('.movies');
+const moviesButton = document.querySelector('.movies');
 const princessesButton = document.querySelector('.princesses');
 const countriesButton = document.querySelector('.countries');
+const categories = [
+	{
+		categoryButton: charactersButton,
+		categoryData: characters,
+		categoryDataHolder: duplicateCharacters,
+	},
+	{
+		categoryButton: moviesButton,
+		categoryData: movies,
+		categoryDataHolder: duplicateMovies,
+	},
+	{
+		categoryButton: princessesButton,
+		categoryData: princesses,
+		categoryDataHolder: duplicatePrincesses,
+	},
+	{
+		categoryButton: countriesButton,
+		categoryData: characters,
+		categoryDataHolder: duplicateCountries,
+	},
+];
+
+categories.forEach((category) => {
+	category.categoryButton.addEventListener('click', (event) => {
+		event.preventDefault();
+		appendWord(category.categoryData, category.categoryDataHolder);
+	});
+});
+
 const chooseSaying = document.querySelector('.choosecategory');
 const word = document.querySelector('.word');
 const hiddenword = document.querySelector('.hiddenword');
@@ -16,22 +46,22 @@ let sumCorrectFreq = 0;
 const newGame = document.querySelector('.restart');
 const keyboardletter = document.querySelectorAll('.keyboardletter');
 
-charactersButton.addEventListener('click', (event) => {
-	event.preventDefault();
-	appendWord(characters, duplicateCharacters);
-});
-movieButton.addEventListener('click', (event) => {
-	event.preventDefault();
-	appendWord(movies, duplicateMovies);
-});
-princessesButton.addEventListener('click', (event) => {
-	event.preventDefault();
-	appendWord(princesses, duplicatePrincesses);
-});
-countriesButton.addEventListener('click', (event) => {
-	event.preventDefault();
-	appendWord(countries, duplicateCountries);
-});
+// charactersButton.addEventListener('click', (event) => {
+// 	event.preventDefault();
+// 	appendWord(characters, duplicateCharacters);
+// });
+// moviesButton.addEventListener('click', (event) => {
+// 	event.preventDefault();
+// 	appendWord(movies, duplicateMovies);
+// });
+// princessesButton.addEventListener('click', (event) => {
+// 	event.preventDefault();
+// 	appendWord(princesses, duplicatePrincesses);
+// });
+// countriesButton.addEventListener('click', (event) => {
+// 	event.preventDefault();
+// 	appendWord(countries, duplicateCountries);
+// });
 
 //assign norepeat word(s)
 function assignAWord(arr, newArr) {
@@ -89,9 +119,13 @@ keyboard.addEventListener('click', (event) => {
 		//counting petals left and game over condition and keyboard change color
 		const letter = event.target.dataset.letter;
 		const hiddenText = hiddenword.innerText;
+		//default,if player doesn't choose category then will still be the same category after hitting the reset(play next/ new agame/ try again) button and assign a different word(s); if player choose another category then will assign a word(s) from different category.
+		// if(hiddenText == "") {
+
+		// }
+
 		if (!hiddenText.includes(letter)) {
 			event.target.classList.add('turngrey');
-			console.log(event.target);
 			if (petalAmount > 1) {
 				petalAmount = petalAmount - 1;
 				result.innerText = `${petalAmount} petals left.`;
@@ -104,7 +138,6 @@ keyboard.addEventListener('click', (event) => {
 			}
 		} else {
 			event.target.classList.add('turnred');
-			console.log(event.target);
 			result.innerText = `${petalAmount} petals left.`;
 		}
 		//winning condition
@@ -148,7 +181,6 @@ newGame.addEventListener('click', (event) => {
 		button.classList.remove('turnred');
 		button.classList.remove('turngrey');
 	});
-	console.log(letterButton);
 	sumCorrectFreq = 0;
 	petalAmount = 7;
 	petalsArray.forEach((petal) => {

@@ -114,31 +114,31 @@
 }
 
 .petal0Fall {
-	transform: translate3d(-25px, 200px, 0px);
-	transition: all 4s ease 1s;
+	transform: translate3d(-35px, 200px, 0px);
+	transition: all 3s ease-in-out 0.5s;
 }
 
 .petal1Fall {
-	transform: translate3d(0px, 200px, 25px);
-	transition: all 4s ease 1s;
+	transform: translate3d(0px, 200px, 40px);
+	transition: all 3s ease-in-out 0.5s;
 }
 .petal2Fall {
-	transform: translate3d(-35px, 200px, 0px);
-	transition: all 4s ease 1s;
+	transform: translate3d(-30px, 200px, 0px);
+	transition: all 3s ease-in-out 0.5s;
 }
 .petal3Fall {
-	transform: translate3d(0px, 200px, 35px);
-	transition: all 4s ease 1s;
+	transform: translate3d(0px, 200px, 30px);
+	transition: all 3s ease-in-out 0.5s;
 }
 .petal4Fall {
-	transform: translate3d(-10px, 200px, 0px);
-	transition: all 4s ease 1s;
+	transform: translate3d(-15px, 200px, 0px);
+	transition: all 3s ease-in-out 0.5s;
 }
 .petal5Fall {
-	transform: translate3d(0px, 200px, 10px);
-	transition: all 4s ease 1s;
+	transform: translate3d(-10px, 200px, 10px);
+	transition: all 3s ease-in-out 0.5s;
 }
 .petal6Fall {
-	transform: translate3d(0px, 200px, 0px);
-	transition: all 4s ease 1s;
+	transform: translate3d(-5px, 200px, 0px);
+	transition: all 3s ease-in-out 0.5s;
 }

@@ -95,6 +95,7 @@ keyboard.addEventListener('click', (event) => {
 			if (petalAmount > 1) {
 				petalAmount = petalAmount - 1;
 				result.innerText = `${petalAmount} petals left.`;
+				petal0.classList.add('petal0Fall');
 			} else if (petalAmount == 1) {
 				result.innerText = `Game Over! Answer is: ${hiddenText}. Try Again!`;
 				playAgain.classList.remove('cssreset');
@@ -129,4 +130,23 @@ keyboard.addEventListener('click', (event) => {
 			playAgain.classList.remove('cssreset');
 		}
 	}
+});
+
+playAgain.addEventListener('click', (event) => {
+	event.preventDefault();
+	//text
+	chooseSaying.style.display = 'inline';
+	hiddenword.innerText = ' ';
+	result.innerText = '';
+	event.target.classList.add('cssreset');
+	//keyboard
+	const letterButton = keyboardletter;
+	letterButton.forEach((button) => {
+		button.classList.add('keyboardreset');
+		button.classList.remove('turnred');
+		button.classList.remove('turngrey');
+	});
+	console.log(letterButton);
+	sumCorrectFreq = 0;
+	petalAmount = 7;
 });

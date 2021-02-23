@@ -2,6 +2,15 @@
 	margin: 2em;
 }
 
+.rosedraft {
+	width: 100px;
+}
+
+.keyboard {
+	width: 20em;
+	/* border: 2px solid green; */
+}
+
 /* hide the letter */
 .underline {
 	color: transparent;
@@ -42,4 +51,73 @@
 .keyboardreset {
 	background: white;
 	color: black;
+}
+
+.leaves {
+	position: absolute;
+	width: 332px;
+	height: 460px;
+	left: 712px;
+	top: 103px;
+}
+
+.petal0 {
+	position: absolute;
+	width: 42.26px;
+	height: 67.22px;
+	left: 814.24px;
+	top: 280.28px;
+}
+
+.petal1 {
+	position: absolute;
+	width: 84px;
+	height: 83.85px;
+	left: 864.5px;
+	top: 279.36px;
+}
+
+.petal2 {
+	position: absolute;
+	width: 70.58px;
+	height: 47.11px;
+	left: 844.49px;
+	top: 299.33px;
+}
+
+.petal3 {
+	position: absolute;
+	width: 43.13px;
+	height: 37.39px;
+	left: 833.35px;
+	top: 247.63px;
+}
+
+.petal4 {
+	position: absolute;
+	width: 75.3px;
+	height: 41.85px;
+	left: 851.5px;
+	top: 250.76px;
+}
+
+.petal5 {
+	position: absolute;
+	width: 52.83px;
+	height: 36.58px;
+	left: 854.94px;
+	top: 270.51px;
+}
+
+.petal6 {
+	position: absolute;
+	width: 6.58px;
+	height: 8px;
+	left: 872.45px;
+	top: 284px;
+}
+
+.petal0Fall {
+	transform: translate3d(-25px, 200px, 0px);
+	transition: all 4s ease 1s;
 }

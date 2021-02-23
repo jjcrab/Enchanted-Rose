@@ -20,6 +20,7 @@ The game is called Enchanted-Rose. Computer randomly assigns word (s) that will 
 
 ### Stretch Goals
 
+- As a player, if I don't choose category then will still be the same category and assign a different word(s); if I choose another category then will assign a word(s) from different category.
 - As a player, I want to see a timer tracker and score tracker so that I know how many times left for one word(s) and how many scores I have been collecting from each word(s).
 - As a player, I want to see the timer tracker showing how many petals left so that I know how many chances left for me to guess the word(s). And one petal is 10 points. So the scores showing how many scores I get for each word(s). If no petal left, I will get 0 score for that word(s).
 - As a developer, I want to reuse the word(s) only when all the word(s) are showed once in each category respectively.

@@ -10,21 +10,22 @@
 <body>
     <header>
         <h1>Enchanted Rose</h1>
-    </header>
-    <main>
         <nav>
             <button type="submit" class="characters">Disney Characters</button>
             <button type="submit" class="movies">Disney Movies</button>
             <button type="submit" class="princesses">Disney Princesses</button>
             <button type="submit" class="countries">Countries</button>
         </nav>
-        <section class="blankspaces">
+    </header>
+    <main id="mainpart">
+        <div>
+            <section class="blankspaces">
             <div class="word">
                 <p class="choosecategory">Choose your interested category and start playing!</p>
                 <div class="hiddenword"></div>
             </div>
-        </section>
-        <section class="keyboard"> 
+            </section>
+            <section class="keyboard"> 
             <button class="keyboardletter" data-letter="A">A</button>
             <button class="keyboardletter" data-letter="B">B</button>             
             <button class="keyboardletter" data-letter="C">C</button>
@@ -51,18 +52,49 @@
             <button class="keyboardletter" data-letter="X">X</button>             
             <button class="keyboardletter" data-letter="Y">Y</button>
             <button class="keyboardletter" data-letter="Z">Z</button>                
-        </section>
-        <section class="painting">
-            <h3>What's happening:</h3>
+            </section>
+            <section class="painting">
+            <h4>What's happening:</h4>
             <p class="result"></p>
-        </section>
+            <img src="image/roseimage.png" alt="rosepaint" class="rosedraft">
+            </section>
+        </div>
+        <div class="animation">
+            <div class="petals petal0" data-petalnumber="0">
+                <img src="image/petal1.png" alt="petal1">
+            </div>          
+            <div class="petals petal1" data-petalnumber="1">
+                <img src="image/petal2.png" alt="petal2">
+            </div>
+            <div class="petals petal2" data-petalnumber="2">
+                <img src="image/petal3.png" alt="petal3">
+            </div>
+            <div class="petals petal3" data-petalnumber="3">
+                <img src="image/petal4.png" alt="petal4">
+            </div>
+            <div class="petals petal4" data-petalnumber="4">
+                <img src="image/petal5.png" alt="petal5">
+            </div>
+            <div class="petals petal5" data-petalnumber="5">
+                <img src="image/petal6.png" alt="petal6">
+            </div>
+            <div class="petals petal6" data-petalnumber="6">
+                <img src="image/petal7.png" alt="petal7">
+            </div>
+            <div class="petals petal7" data-petalnumber="7">
+            </div>
+            <div class="leaves">
+                <img src="image/leaves.png" alt="leavesimage">         
+            </div>
 
+        </div>
     </main>    
     <footer>
         <button type="reset" class="restart cssreset">Play Again!</button>
     </footer>
     <script src="lists.js"></script>
     <script src="app.js"></script>
+    <script src="animation.js"></script>
     <script src="pseudocode.js"></script>
 </body>
 </html>

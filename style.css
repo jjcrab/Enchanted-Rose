@@ -7,16 +7,37 @@ h1 {
 }
 
 .hiddenword {
-	margin: 2em;
+	/* margin: 10px; */
 	text-align: center;
-	font-size: 18px;
+	font-size: 20px;
 	font-weight: 600;
+	/* background-color: dodgerblue;
+	border: 5px black; */
+	width: 100%;
+	padding: 10px;
+	/* display: flex;
+	flex-wrap: wrap; */
+}
+.hiddenword span {
+	margin: 10px;
+	padding: auto;
+}
+
+.blankspaces {
+	height: 8em;
+	/* background-color: darkmagenta; */
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }
 
 .keyboard {
-	width: 30em;
+	width: 50%;
 	/* border: 2px solid green; */
-	margin: 4em 15em 2em 5em;
+	margin-right: 5px;
+	margin-left: 10em;
+	/* background-color: tomato;
+	border: 5px solid darkmagenta; */
 }
 
 .keyboardletter {
@@ -34,6 +55,7 @@ nav {
 nav button {
 	margin: 1em;
 	font-size: 16px;
+	width: 100%;
 }
 
 p {
@@ -88,66 +110,66 @@ p {
 
 .leaves {
 	position: absolute;
-	width: 332px;
-	height: 460px;
-	left: 712px;
-	top: 203px;
+	max-width: 100%;
+	height: auto;
+	left: 612px;
+	top: 303px;
 }
 
 .petal0 {
 	position: absolute;
-	width: 42.26px;
-	height: 67.22px;
-	left: 814.24px;
-	top: 380.28px;
+	width: 100%;
+	height: auto;
+	left: 714.24px;
+	top: 480.28px;
 }
 
 .petal1 {
 	position: absolute;
-	width: 84px;
-	height: 83.85px;
-	left: 864.5px;
-	top: 379.36px;
+	width: 100%;
+	height: auto;
+	left: 764.5px;
+	top: 479.36px;
 }
 
 .petal4 {
 	position: absolute;
-	width: 70.58px;
-	height: 47.11px;
-	left: 844.49px;
-	top: 399.33px;
+	width: 100%;
+	height: auto;
+	left: 744.49px;
+	top: 499.33px;
 }
 
 .petal2 {
 	position: absolute;
-	width: 43.13px;
-	height: 37.39px;
-	left: 833.35px;
-	top: 347.63px;
+	width: 100%;
+	height: auto;
+	left: 733.35px;
+	top: 447.63px;
 }
 
 .petal3 {
 	position: absolute;
-	width: 75.3px;
-	height: 41.85px;
-	left: 851.5px;
-	top: 350.76px;
+	width: 100%;
+	height: auto;
+	left: 751.5px;
+	top: 450.76px;
 }
 
 .petal5 {
 	position: absolute;
-	width: 52.83px;
-	height: 36.58px;
-	left: 854.94px;
-	top: 370.51px;
+	width: 100%;
+	height: auto;
+	left: 754.94px;
+	top: 470.51px;
 }
 
 .petal6 {
 	position: absolute;
-	width: 6.58px;
-	height: 8px;
-	left: 872.45px;
-	top: 384px;
+	width: 100%;
+	height: auto;
+	left: 772.45px;
+	top: 484px;
 }
 
 .petal0Fall {
@@ -191,11 +213,15 @@ p {
 
 .happening {
 	margin-left: 5em;
+	margin-top: 2em;
 }
 
 .result {
-	font-size: 20px;
+	font-size: 24px;
 	font-weight: 600;
+	font-family: 'Kaushan Script', sans-serif;
+	margin-right: 4em;
+	height: 10em;
 }
 
 .buttonHover:hover,
@@ -207,33 +233,68 @@ p {
 main {
 	display: flex;
 	justify-content: space-around;
+	align-items: flex-start;
+	height: 25em;
 }
 
+.playground {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+/* .animation {
+	width: 20%;
+	height: 20em;
+} */
+
 .restart {
-	position: relative;
-	margin-top: 2em;
-	padding: 0.2em;
+	/* position: relative; */
+	/* margin-top: 2em; */
+
 	font-size: 16px;
-	margin-left: 6em;
+	/* margin-left: 6em; */
+	/* background: chartreuse; */
+	height: 2em;
 }
 
 body {
 	display: flex;
 	flex-direction: column;
-	justify-content: space-evenly;
+	justify-content: stretch;
+	align-items: center;
 	max-width: 100%;
 	margin: auto;
 	position: relative;
 	max-width: 900px;
-	background: rgb(245, 240, 180);
+	min-width: 500px;
+	background: rgb(248, 228, 161);
 }
 
-main div {
-	margin-top: 2em;
+footer {
+	display: flex;
+	width: 100%;
+	/* background: crimson; */
+	height: 5em;
+	justify-content: center;
+	align-items: center;
 }
 
-@media only screen and (max-width: 600px) {
-	body {
-		width: 100%;
+header {
+	height: 15em;
+	/* background: crimson; */
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	width: 100%;
+}
+
+@media only screen and (max-width: 500px) {
+	.playground {
+		width: 50%;
+	}
+	.mainpart {
+		display: flex;
+		flex-direction: column;
 	}
 }

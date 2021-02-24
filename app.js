@@ -99,8 +99,8 @@ function appendWord(arr, newArr) {
 	chooseSaying.style.display = 'none';
 	hiddenword.innerText = ' ';
 	let assignedWord = assignAWord(arr, newArr)[2];
-	console.log(arr, newArr);
-	console.log(assignedWord);
+	// console.log(arr, newArr);
+	// console.log(assignedWord);
 	const wordArr = assignedWord.split('');
 	wordArr.forEach((letter) => {
 		const span = document.createElement('span');

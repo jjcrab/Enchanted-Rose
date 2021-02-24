@@ -5,6 +5,12 @@ const charactersButton = document.querySelector('.characters');
 const moviesButton = document.querySelector('.movies');
 const princessesButton = document.querySelector('.princesses');
 const countriesButton = document.querySelector('.countries');
+const categoriesButtons = [
+	charactersButton,
+	moviesButton,
+	princessesButton,
+	countriesButton,
+];
 const categories = [
 	{
 		categoryButton: charactersButton,
@@ -37,8 +43,10 @@ const correctLetterCount = {};
 let sumCorrectFreq = 0;
 const newGame = document.querySelector('.restart');
 const keyboardletter = document.querySelectorAll('.keyboardletter');
+const letterButton = keyboardletter;
 let currentCategory = null;
 let currentCategoryHolder = null;
+letterButton.forEach((button) => (button.disabled = true));
 
 //append event listener
 categories.forEach((category) => {
@@ -47,6 +55,7 @@ categories.forEach((category) => {
 		appendWord(category.categoryData, category.categoryDataHolder);
 		currentCategory = category.categoryData;
 		currentCategoryHolder = category.categoryDataHolder;
+		letterButton.forEach((button) => (button.disabled = false));
 	});
 });
 
@@ -82,7 +91,6 @@ function appendWord(arr, newArr) {
 		} else {
 			span.classList.add('underline');
 		}
-
 		//keyboard button - show right letter in the space
 		keyboard.addEventListener('click', (event) => {
 			event.preventDefault();
@@ -103,10 +111,13 @@ function appendWord(arr, newArr) {
 keyboard.addEventListener('click', (event) => {
 	event.preventDefault();
 	if (event.target.classList.contains('keyboardletter')) {
+		categoriesButtons.forEach((button) => (button.disabled = true));
 		//counting petals left and game over condition and keyboard change color
 		const letter = event.target.dataset.letter;
 		const hiddenText = hiddenword.innerText;
-		if (!hiddenText.includes(letter)) {
+		if (hiddenText == '') {
+			letterButton.forEach((button) => (button.disabled = true));
+		} else if (!hiddenText.includes(letter)) {
 			event.target.classList.add('turngrey');
 			if (petalAmount > 1) {
 				petalAmount = petalAmount - 1;
@@ -117,6 +128,8 @@ keyboard.addEventListener('click', (event) => {
 				result.innerText = `Game Over! Answer is: ${hiddenText}. Try Again!`;
 				newGame.innerText = 'Try Again';
 				petalsArray[i].classList.add(petalsClassArray[i]);
+				letterButton.forEach((button) => (button.disabled = true));
+				categoriesButtons.forEach((button) => (button.disabled = true));
 			}
 		} else {
 			event.target.classList.add('turnred');
@@ -141,9 +154,15 @@ keyboard.addEventListener('click', (event) => {
 			sumCorrectFreq = sumCorrectFreq + correctLetterCount[letter];
 		}
 		const rightLetterAmount = Object.keys(correctLetterCount).length;
-		if (sumCorrectFreq == filteredSpace.length && petalAmount >= 1) {
+		if (
+			hiddenText != '' &&
+			sumCorrectFreq == filteredSpace.length &&
+			petalAmount >= 1
+		) {
 			result.innerText = "You save Beast's Rose!";
 			newGame.innerText = 'Play Next!';
+			letterButton.forEach((button) => (button.disabled = true));
+			categoriesButtons.forEach((button) => (button.disabled = true));
 		}
 	}
 });
@@ -157,7 +176,6 @@ newGame.addEventListener('click', (event) => {
 	result.innerText = '';
 	event.target.innerText = 'New Game';
 	//keyboard
-	const letterButton = keyboardletter;
 	letterButton.forEach((button) => {
 		button.classList.add('keyboardreset');
 		button.classList.remove('turnred');
@@ -170,4 +188,6 @@ newGame.addEventListener('click', (event) => {
 	});
 	i = 0;
 	appendWord(currentCategory, currentCategoryHolder);
+	letterButton.forEach((button) => (button.disabled = false));
+	categoriesButtons.forEach((button) => (button.disabled = false));
 });

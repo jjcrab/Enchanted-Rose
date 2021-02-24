@@ -142,3 +142,8 @@
 	transform: translate3d(-5px, 200px, 0px);
 	transition: all 3s ease-in-out 0.5s;
 }
+
+.choosecategory {
+	color: brown;
+	font-weight: bold;
+}

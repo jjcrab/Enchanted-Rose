@@ -29,7 +29,7 @@ const categories = [
 	},
 	{
 		categoryButton: countriesButton,
-		categoryData: characters,
+		categoryData: countries,
 		categoryDataHolder: duplicateCountries,
 	},
 ];
@@ -46,7 +46,12 @@ const keyboardletter = document.querySelectorAll('.keyboardletter');
 const letterButton = keyboardletter;
 let currentCategory = null;
 let currentCategoryHolder = null;
+const happening = document.querySelector('.happening');
+
+//first game default
 letterButton.forEach((button) => (button.disabled = true));
+newGame.classList.add('noshow');
+happening.classList.add('noshow');
 
 //append event listener
 categories.forEach((category) => {
@@ -56,6 +61,15 @@ categories.forEach((category) => {
 		currentCategory = category.categoryData;
 		currentCategoryHolder = category.categoryDataHolder;
 		letterButton.forEach((button) => (button.disabled = false));
+		//only the last clicked button will show the differnt change as the chosen category
+		event.target.classList.add('categoryButtonColor');
+		let noChosenCategory = categoriesButtons.filter((category) => {
+			return category !== event.target;
+		});
+		noChosenCategory.forEach((noChosen) =>
+			noChosen.classList.remove('categoryButtonColor')
+		);
+		newGame.classList.remove('noshow');
 	});
 });
 
@@ -97,7 +111,7 @@ function appendWord(arr, newArr) {
 			if (event.target.classList.contains('keyboardletter')) {
 				const letter = event.target.dataset.letter;
 				if (span.innerText == letter) {
-					span.classList.add('showup');
+					span.classList.add('letterShowup');
 				}
 			}
 		});
@@ -112,6 +126,7 @@ keyboard.addEventListener('click', (event) => {
 	event.preventDefault();
 	if (event.target.classList.contains('keyboardletter')) {
 		categoriesButtons.forEach((button) => (button.disabled = true));
+		happening.classList.remove('noshow');
 		//counting petals left and game over condition and keyboard change color
 		const letter = event.target.dataset.letter;
 		const hiddenText = hiddenword.innerText;
@@ -172,7 +187,6 @@ newGame.addEventListener('click', (event) => {
 	event.preventDefault();
 	//text
 	chooseSaying.style.display = 'inline';
-
 	result.innerText = '';
 	event.target.innerText = 'New Game';
 	//keyboard

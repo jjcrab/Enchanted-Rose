@@ -30,8 +30,16 @@
 	margin-left: 0.5em;
 }
 
-.showup {
+.letterShowup {
 	color: black;
+}
+
+.show {
+	display: inline-block;
+}
+
+.noshow {
+	display: none;
 }
 
 .keyboard .turnred {
@@ -146,4 +154,8 @@
 .choosecategory {
 	color: brown;
 	font-weight: bold;
+}
+
+.categoryButtonColor {
+	background: cornflowerblue;
 }

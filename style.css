@@ -1,14 +1,43 @@
-.hiddenword {
-	margin: 2em;
+@import url('https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap');
+
+h1 {
+	text-align: center;
+	font-family: 'Kaushan Script', sans-serif;
+	font-size: 3em;
 }
 
-.rosedraft {
-	width: 100px;
+.hiddenword {
+	margin: 2em;
+	text-align: center;
+	font-size: 18px;
+	font-weight: 600;
 }
 
 .keyboard {
-	width: 20em;
+	width: 30em;
 	/* border: 2px solid green; */
+	margin: 4em 15em 2em 5em;
+}
+
+.keyboardletter {
+	padding: 8px 12px;
+	margin: 2px;
+	font-family: monospace;
+	font-size: 16px;
+}
+
+nav {
+	display: flex;
+	justify-content: center;
+}
+
+nav button {
+	margin: 1em;
+	font-size: 16px;
+}
+
+p {
+	text-align: center;
 }
 
 /* hide the letter */
@@ -16,9 +45,9 @@
 	color: transparent;
 	font-family: monospace;
 	text-decoration: none;
-	padding: 0.5em;
-	border-bottom: 2px solid black;
-	margin-left: 0.5em;
+	padding: 0.2em;
+	border-bottom: 3px solid black;
+	margin-left: 2em;
 }
 
 /* for space */
@@ -26,8 +55,8 @@
 	color: black;
 	font-family: monospace;
 	text-decoration: none;
-	padding: 0.5em;
-	margin-left: 0.5em;
+	padding: 0.2em;
+	margin-left: 2em;
 }
 
 .letterShowup {
@@ -62,7 +91,7 @@
 	width: 332px;
 	height: 460px;
 	left: 712px;
-	top: 103px;
+	top: 203px;
 }
 
 .petal0 {
@@ -70,7 +99,7 @@
 	width: 42.26px;
 	height: 67.22px;
 	left: 814.24px;
-	top: 280.28px;
+	top: 380.28px;
 }
 
 .petal1 {
@@ -78,7 +107,7 @@
 	width: 84px;
 	height: 83.85px;
 	left: 864.5px;
-	top: 279.36px;
+	top: 379.36px;
 }
 
 .petal4 {
@@ -86,7 +115,7 @@
 	width: 70.58px;
 	height: 47.11px;
 	left: 844.49px;
-	top: 299.33px;
+	top: 399.33px;
 }
 
 .petal2 {
@@ -94,7 +123,7 @@
 	width: 43.13px;
 	height: 37.39px;
 	left: 833.35px;
-	top: 247.63px;
+	top: 347.63px;
 }
 
 .petal3 {
@@ -102,7 +131,7 @@
 	width: 75.3px;
 	height: 41.85px;
 	left: 851.5px;
-	top: 250.76px;
+	top: 350.76px;
 }
 
 .petal5 {
@@ -110,7 +139,7 @@
 	width: 52.83px;
 	height: 36.58px;
 	left: 854.94px;
-	top: 270.51px;
+	top: 370.51px;
 }
 
 .petal6 {
@@ -118,7 +147,7 @@
 	width: 6.58px;
 	height: 8px;
 	left: 872.45px;
-	top: 284px;
+	top: 384px;
 }
 
 .petal0Fall {
@@ -157,5 +186,54 @@
 }
 
 .categoryButtonColor {
-	background: cornflowerblue;
+	background: skyblue;
+}
+
+.happening {
+	margin-left: 5em;
+}
+
+.result {
+	font-size: 20px;
+	font-weight: 600;
+}
+
+.buttonHover:hover,
+.restart:hover {
+	background-color: paleturquoise;
+}
+
+/* responsive */
+main {
+	display: flex;
+	justify-content: space-around;
+}
+
+.restart {
+	position: relative;
+	margin-top: 2em;
+	padding: 0.2em;
+	font-size: 16px;
+	margin-left: 6em;
+}
+
+body {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-evenly;
+	max-width: 100%;
+	margin: auto;
+	position: relative;
+	max-width: 900px;
+	background: rgb(245, 240, 180);
+}
+
+main div {
+	margin-top: 2em;
+}
+
+@media only screen and (max-width: 600px) {
+	body {
+		width: 100%;
+	}
 }

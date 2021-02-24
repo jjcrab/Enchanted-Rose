@@ -50,6 +50,7 @@ const happening = document.querySelector('.happening');
 
 //first game default
 letterButton.forEach((button) => (button.disabled = true));
+categoriesButtons.forEach((button) => button.classList.add('buttonHover'));
 newGame.classList.add('noshow');
 happening.classList.add('noshow');
 
@@ -60,7 +61,10 @@ categories.forEach((category) => {
 		appendWord(category.categoryData, category.categoryDataHolder);
 		currentCategory = category.categoryData;
 		currentCategoryHolder = category.categoryDataHolder;
-		letterButton.forEach((button) => (button.disabled = false));
+		letterButton.forEach((button) => {
+			button.disabled = false;
+			button.classList.add('buttonHover');
+		});
 		//only the last clicked button will show the differnt change as the chosen category
 		event.target.classList.add('categoryButtonColor');
 		let noChosenCategory = categoriesButtons.filter((category) => {
@@ -75,6 +79,7 @@ categories.forEach((category) => {
 
 //assign norepeat word(s)
 function assignAWord(arr, newArr) {
+	//refill the array when the last one assigned
 	if (arr.length == 1) {
 		rword = arr.pop();
 		newArr.push(rword);
@@ -94,6 +99,7 @@ function appendWord(arr, newArr) {
 	chooseSaying.style.display = 'none';
 	hiddenword.innerText = ' ';
 	let assignedWord = assignAWord(arr, newArr)[2];
+	console.log(arr, newArr);
 	console.log(assignedWord);
 	const wordArr = assignedWord.split('');
 	wordArr.forEach((letter) => {
@@ -125,7 +131,10 @@ function appendWord(arr, newArr) {
 keyboard.addEventListener('click', (event) => {
 	event.preventDefault();
 	if (event.target.classList.contains('keyboardletter')) {
-		categoriesButtons.forEach((button) => (button.disabled = true));
+		categoriesButtons.forEach((button) => {
+			button.disabled = true;
+			button.classList.remove('buttonHover');
+		});
 		happening.classList.remove('noshow');
 		//counting petals left and game over condition and keyboard change color
 		const letter = event.target.dataset.letter;
@@ -143,8 +152,14 @@ keyboard.addEventListener('click', (event) => {
 				result.innerText = `Game Over! Answer is: ${hiddenText}. Try Again!`;
 				newGame.innerText = 'Try Again';
 				petalsArray[i].classList.add(petalsClassArray[i]);
-				letterButton.forEach((button) => (button.disabled = true));
-				categoriesButtons.forEach((button) => (button.disabled = true));
+				letterButton.forEach((button) => {
+					button.disabled = true;
+					button.classList.remove('buttonHover');
+				});
+				categoriesButtons.forEach((button) => {
+					button.disabled = true;
+					button.classList.remove('buttonHover');
+				});
 			}
 		} else {
 			event.target.classList.add('turnred');
@@ -176,8 +191,14 @@ keyboard.addEventListener('click', (event) => {
 		) {
 			result.innerText = "You save Beast's Rose!";
 			newGame.innerText = 'Play Next!';
-			letterButton.forEach((button) => (button.disabled = true));
-			categoriesButtons.forEach((button) => (button.disabled = true));
+			letterButton.forEach((button) => {
+				button.disabled = true;
+				button.classList.remove('buttonHover');
+			});
+			categoriesButtons.forEach((button) => {
+				button.disabled = true;
+				button.classList.remove('buttonHover');
+			});
 		}
 	}
 });
@@ -203,5 +224,8 @@ newGame.addEventListener('click', (event) => {
 	i = 0;
 	appendWord(currentCategory, currentCategoryHolder);
 	letterButton.forEach((button) => (button.disabled = false));
-	categoriesButtons.forEach((button) => (button.disabled = false));
+	categoriesButtons.forEach((button) => {
+		button.disabled = false;
+		button.classList.add('buttonHover');
+	});
 });

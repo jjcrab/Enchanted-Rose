@@ -1,0 +1,70 @@
+.leaves {
+	position: absolute;
+	width: 332px;
+	height: 460px;
+	left: 712px;
+	top: 203px;
+}
+
+.petal0 {
+	position: absolute;
+	width: 42.26px;
+	height: 67.22px;
+	left: 814.24px;
+	top: 380.28px;
+}
+
+.petal1 {
+	position: absolute;
+	width: 84px;
+	height: 83.85px;
+	left: 864.5px;
+	top: 379.36px;
+}
+
+.petal4 {
+	position: absolute;
+	width: 70.58px;
+	height: 47.11px;
+	left: 844.49px;
+	top: 399.33px;
+}
+
+.petal2 {
+	position: absolute;
+	width: 43.13px;
+	height: 37.39px;
+	left: 833.35px;
+	top: 347.63px;
+}
+
+.petal3 {
+	position: absolute;
+	width: 75.3px;
+	height: 41.85px;
+	left: 851.5px;
+	top: 350.76px;
+}
+
+.petal5 {
+	position: absolute;
+	width: 52.83px;
+	height: 36.58px;
+	left: 854.94px;
+	top: 370.51px;
+}
+
+.petal6 {
+	position: absolute;
+	width: 6.58px;
+	height: 8px;
+	left: 872.45px;
+	top: 384px;
+}
+
+.keyboard {
+	width: 50%;
+	/* border: 2px solid green; */
+	margin: 4em 15em 2em 5em;
+	background-color: tomato;
+}

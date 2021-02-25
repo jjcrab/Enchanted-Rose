@@ -17,3 +17,8 @@ const petalsClassArray = [
 	'petal6Fall',
 ];
 let i = 0;
+
+const petalNumber = document.querySelector('.petalnumber');
+const scoreNumber = document.querySelector('.scorenumber');
+
+let score = 0;

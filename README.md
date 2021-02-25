@@ -31,8 +31,7 @@ The game is called Enchanted-Rose. Computer randomly assigns word (s) that will 
 ### Gold Goals
 
 - As a player, I want to see all the clickable buttons are showing a more obvious color when I hover.
-- As a player, I want to see a timer tracker and score tracker so that I know how many times left for one word(s) and how many scores I have been collecting from each word(s).
-- As a player, I want to see the timer tracker showing how many petals left so that I know how many chances left for me to guess the word(s). And one petal is 10 points. So the scores showing how many scores I get for each word(s). If no petal left, I will get 0 score for that word(s).
+- As a player, I want to see a timer tracker and score tracker. The timer tracker shows how many petals left so that I know how many chances left for me to guess the word(s). And one petal is 10 points. So the scores showing how many scores I get for each word(s). If no petal left, I will get 0 score for that word(s).
 - As a player, I want to have an "About the game" button so that I can see the game rules in modal box.
 - As a player, I want to see the petals rotate when they fall on the ground.
 - As a player, I want to see the answers filled in the spaces if I don't get all the letters and game over.

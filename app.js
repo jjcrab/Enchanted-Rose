@@ -100,7 +100,7 @@ function appendWord(arr, newArr) {
 	hiddenword.innerText = ' ';
 	let assignedWord = assignAWord(arr, newArr)[2];
 	// console.log(arr, newArr);
-	// console.log(assignedWord);
+	console.log(assignedWord);
 	const wordArr = assignedWord.split('');
 	wordArr.forEach((letter) => {
 		const span = document.createElement('span');
@@ -146,6 +146,7 @@ keyboard.addEventListener('click', (event) => {
 			if (petalAmount > 1) {
 				petalAmount = petalAmount - 1;
 				result.innerText = `${petalAmount} petals left.`;
+				petalNumber.innerText = `${petalAmount}`;
 				petalsArray[i].classList.add(petalsClassArray[i]);
 				i++;
 			} else if (petalAmount == 1) {
@@ -164,6 +165,7 @@ keyboard.addEventListener('click', (event) => {
 		} else {
 			event.target.classList.add('turnred');
 			result.innerText = `${petalAmount} petals left.`;
+			petalNumber.innerText = `${petalAmount}`;
 		}
 		//winning condition
 		const hiddenTextArr = hiddenText.split('');
@@ -189,7 +191,10 @@ keyboard.addEventListener('click', (event) => {
 			sumCorrectFreq == filteredSpace.length &&
 			petalAmount >= 1
 		) {
-			result.innerText = "You save Beast's Rose!";
+			result.innerText = `You save ${petalAmount} petal(s) for the Beast!`;
+			console.log(`${petalAmount * 10}`);
+			scoreNumber.innerText = `${petalAmount * 10}`;
+
 			newGame.innerText = 'Play Next!';
 			letterButton.forEach((button) => {
 				button.disabled = true;
@@ -228,4 +233,5 @@ newGame.addEventListener('click', (event) => {
 		button.disabled = false;
 		button.classList.add('buttonHover');
 	});
+	petalNumber.innerText = '';
 });

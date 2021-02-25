@@ -261,7 +261,7 @@ main {
 body {
 	display: flex;
 	flex-direction: column;
-	justify-content: stretch;
+	justify-content: center;
 	align-items: center;
 	max-width: 100%;
 	margin: auto;
@@ -297,4 +297,10 @@ header {
 		display: flex;
 		flex-direction: column;
 	}
+}
+
+.tracker {
+	position: absolute;
+	top: 0px;
+	right: 0px;
 }

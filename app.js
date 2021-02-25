@@ -83,8 +83,9 @@ function assignAWord(arr, newArr) {
 	if (arr.length == 1) {
 		rword = arr.pop();
 		newArr.push(rword);
-		arr = [...newArr];
-		newArr = [];
+		for (let i = 0; i < newArr.length; i++) {
+			arr.push(newArr.pop());
+		}
 		return [arr, newArr, rword];
 	} else {
 		let randomIndex = Math.floor(Math.random() * arr.length);

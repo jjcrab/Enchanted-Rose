@@ -4,24 +4,22 @@ h1 {
 	text-align: center;
 	font-family: 'Kaushan Script', sans-serif;
 	font-size: 3em;
+	color: rgb(255, 230, 0);
 }
 
 .hiddenword {
-	/* margin: 10px; */
 	text-align: center;
-	font-size: 20px;
-	font-weight: 600;
-	/* background-color: dodgerblue;
-	border: 5px black; */
 	width: 100%;
 	padding: 10px;
 	line-height: 40px;
-	/* display: flex;
-	flex-wrap: wrap; */
 }
 .hiddenword span {
 	margin: 10px;
 	padding: auto;
+	color: lightcoral;
+	-webkit-text-stroke: 1px rgb(185, 59, 13);
+	font-size: 25px;
+	font-weight: 600;
 }
 
 .blankspaces {
@@ -48,6 +46,7 @@ h1 {
 	margin: 2px;
 	font-family: monospace;
 	font-size: 16px;
+	outline: none;
 }
 
 nav {
@@ -64,6 +63,7 @@ nav button {
 	font-size: 16px;
 	width: 50%;
 	padding: 3px 6px;
+	font-family: fantasy;
 }
 
 p {
@@ -76,7 +76,7 @@ p {
 	font-family: monospace;
 	text-decoration: none;
 	padding: 0.2em;
-	border-bottom: 3px solid black;
+	border-bottom: 3px solid rgb(6, 10, 77);
 	margin-left: 2em;
 }
 
@@ -211,7 +211,7 @@ p {
 }
 
 .choosecategory {
-	color: brown;
+	color: rgb(6, 7, 63);
 	font-weight: bold;
 	width: 100%;
 	text-align: center;
@@ -226,15 +226,16 @@ p {
 .happening {
 	margin-left: 5em;
 	margin-top: 2em;
+	font-family: fantasy;
+	font-weight: bold;
 }
 
 .result {
 	font-size: 24px;
 	font-weight: 600;
 	font-family: 'Kaushan Script', sans-serif;
-	/* margin: 0; */
+	color: rgb(6, 26, 65);
 	height: 50%;
-	/* border: 3px solid black; */
 	width: 60%;
 }
 
@@ -249,6 +250,10 @@ p {
 	top: 0px;
 	right: 15px;
 	font-size: 18px;
+	font-weight: 700;
+	font-family: fantasy;
+	color: rgb(70, 159, 182);
+	-webkit-text-stroke: 0.4px rgb(9, 11, 105);
 }
 
 #modal {
@@ -298,21 +303,28 @@ p {
 	bottom: 0;
 	left: 0;
 	padding: 5px;
+	background-color: rgb(82, 105, 139);
+	font-family: fantasy;
+	border-radius: 10px;
 }
 
 .cssreset {
 	padding: 10px;
-	background-color: rgb(40, 112, 207);
-	border: none;
+	padding-left: 2px;
+	background-image: url(/image/buttonimage.png);
+	background-color: transparent;
+	background-repeat: no-repeat;
 	outline: none;
-	border-radius: 20px;
-	color: white;
-	font-family: Arial, Helvetica, sans-serif;
+	color: rgb(172, 11, 11);
+	font-family: 'Kaushan Script', sans-serif;
 	bottom: 20px;
-	width: 150px;
+	width: 300px;
 	font-size: 20px;
-	margin-left: 300px;
-	margin-bottom: 30px;
+	font-weight: 700;
+	margin-left: 200px;
+	margin-bottom: 40px;
+	background-position: 0px 0px;
+	border: none;
 }
 
 h2 {
@@ -349,8 +361,11 @@ body {
 	position: relative;
 	max-width: 1000px;
 	min-width: 500px;
-	background: rgb(243, 234, 154);
-	/* border: 5px solid black; */
+	background: linear-gradient(
+		to bottom right,
+		rgb(7, 25, 58),
+		rgb(247, 241, 188)
+	);
 }
 
 footer {

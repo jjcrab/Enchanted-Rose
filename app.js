@@ -59,7 +59,6 @@ categories.forEach((category) => {
 	category.categoryButton.addEventListener('click', (event) => {
 		event.preventDefault();
 		appendWord(category.categoryData, category.categoryDataHolder);
-		// console.log(category.categoryData, category.categoryDataHolder);
 		currentCategory = category.categoryData;
 		currentCategoryHolder = category.categoryDataHolder;
 		letterButton.forEach((button) => {
@@ -99,21 +98,7 @@ function assignAWord(arr, newArr) {
 function appendWord(arr, newArr) {
 	chooseSaying.style.display = 'none';
 	hiddenword.innerText = ' ';
-
-	// let arr = assignAWord(arr, newArr)[0]
-	// let temp = assignAWord(arr, newArr);
-	// let assignedWord = temp[2];
-	// let arr1 = temp[0];
-	// let newArr1 = temp[1];
-
 	let assignedWord = assignAWord(arr, newArr)[2];
-
-	// if (arr1.length == 1) {
-	// 	arr1 = [...newArr1];
-	// 	newArr1 = [];
-	// }
-
-	// console.log(arr, newArr);
 	console.log(assignedWord);
 	const wordArr = assignedWord.split('');
 	wordArr.forEach((letter) => {
@@ -135,11 +120,9 @@ function appendWord(arr, newArr) {
 				}
 			}
 		});
-
 		blankSpaces.appendChild(hiddenword);
 		hiddenword.classList.add('hidden');
 	});
-	// return [arr1, newArr1];
 }
 
 //Showing result and finish game condition
@@ -245,15 +228,6 @@ newGame.addEventListener('click', (event) => {
 	});
 	i = 0;
 	appendWord(currentCategory, currentCategoryHolder);
-	// let arrcc = cc[0];
-	// let newArrcc = cc[1];
-	// console.log(arrcc, newArrcc);
-	// if (arrcc.length == 1) {
-	// 	currentCategory = [...newArrcc];
-	// 	currentCategoryHolder = [];
-	// }
-
-	// console.log(currentCategory, currentCategoryHolder);
 	letterButton.forEach((button) => (button.disabled = false));
 	categoriesButtons.forEach((button) => {
 		button.disabled = false;

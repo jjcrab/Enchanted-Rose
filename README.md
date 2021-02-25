@@ -6,6 +6,7 @@ The game is called Enchanted-Rose. Computer randomly assigns word (s) that will 
 
 > Copy and paste or drag and drop your images here.
 > ![Image](https://media.git.generalassemb.ly/user/34159/files/af155a00-7259-11eb-8b03-e79299f608e4) > ![Wireframes1](https://media.git.generalassemb.ly/user/34159/files/b2244f00-731a-11eb-8b85-55360eb687cc)
+> ![Image](/image/latestwireframes.png)
 
 ## User Stories
 

@@ -59,6 +59,7 @@ categories.forEach((category) => {
 	category.categoryButton.addEventListener('click', (event) => {
 		event.preventDefault();
 		appendWord(category.categoryData, category.categoryDataHolder);
+		// console.log(category.categoryData, category.categoryDataHolder);
 		currentCategory = category.categoryData;
 		currentCategoryHolder = category.categoryDataHolder;
 		letterButton.forEach((button) => {
@@ -79,7 +80,7 @@ categories.forEach((category) => {
 
 //assign norepeat word(s)
 function assignAWord(arr, newArr) {
-	//refill the array when the last one assigned
+	// refill the array when the last one assigned
 	if (arr.length == 1) {
 		rword = arr.pop();
 		newArr.push(rword);
@@ -98,7 +99,20 @@ function assignAWord(arr, newArr) {
 function appendWord(arr, newArr) {
 	chooseSaying.style.display = 'none';
 	hiddenword.innerText = ' ';
+
+	// let arr = assignAWord(arr, newArr)[0]
+	// let temp = assignAWord(arr, newArr);
+	// let assignedWord = temp[2];
+	// let arr1 = temp[0];
+	// let newArr1 = temp[1];
+
 	let assignedWord = assignAWord(arr, newArr)[2];
+
+	// if (arr1.length == 1) {
+	// 	arr1 = [...newArr1];
+	// 	newArr1 = [];
+	// }
+
 	// console.log(arr, newArr);
 	console.log(assignedWord);
 	const wordArr = assignedWord.split('');
@@ -125,6 +139,7 @@ function appendWord(arr, newArr) {
 		blankSpaces.appendChild(hiddenword);
 		hiddenword.classList.add('hidden');
 	});
+	// return [arr1, newArr1];
 }
 
 //Showing result and finish game condition
@@ -151,6 +166,7 @@ keyboard.addEventListener('click', (event) => {
 				i++;
 			} else if (petalAmount == 1) {
 				result.innerText = `Game Over! Answer is: ${hiddenText}. Try Again!`;
+				petalNumber.innerText = `${petalAmount - 1}`;
 				newGame.innerText = 'Try Again';
 				petalsArray[i].classList.add(petalsClassArray[i]);
 				letterButton.forEach((button) => {
@@ -193,7 +209,8 @@ keyboard.addEventListener('click', (event) => {
 		) {
 			result.innerText = `You save ${petalAmount} petal(s) for the Beast!`;
 			console.log(`${petalAmount * 10}`);
-			scoreNumber.innerText = `${petalAmount * 10}`;
+			score = score + petalAmount * 10;
+			scoreNumber.innerText = `${score}`;
 
 			newGame.innerText = 'Play Next!';
 			letterButton.forEach((button) => {
@@ -228,6 +245,15 @@ newGame.addEventListener('click', (event) => {
 	});
 	i = 0;
 	appendWord(currentCategory, currentCategoryHolder);
+	// let arrcc = cc[0];
+	// let newArrcc = cc[1];
+	// console.log(arrcc, newArrcc);
+	// if (arrcc.length == 1) {
+	// 	currentCategory = [...newArrcc];
+	// 	currentCategoryHolder = [];
+	// }
+
+	// console.log(currentCategory, currentCategoryHolder);
 	letterButton.forEach((button) => (button.disabled = false));
 	categoriesButtons.forEach((button) => {
 		button.disabled = false;

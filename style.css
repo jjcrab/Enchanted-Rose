@@ -306,7 +306,7 @@ p {
 .cssreset {
 	padding: 10px;
 	padding-left: 2px;
-	background-image: url(/image/buttonimage.png);
+	background-image: url(image/buttonimage.png);
 	background-color: transparent;
 	background-repeat: no-repeat;
 	outline: none;

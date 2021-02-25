@@ -15,6 +15,7 @@ h1 {
 	border: 5px black; */
 	width: 100%;
 	padding: 10px;
+	line-height: 40px;
 	/* display: flex;
 	flex-wrap: wrap; */
 }
@@ -24,24 +25,26 @@ h1 {
 }
 
 .blankspaces {
-	height: 8em;
+	height: 30%;
 	/* background-color: darkmagenta; */
 	display: flex;
+	flex-direction: column;
 	align-items: center;
 	justify-content: center;
 }
 
 .keyboard {
-	width: 50%;
+	width: 45%;
+	height: 30%;
 	/* border: 2px solid green; */
-	margin-right: 5px;
-	margin-left: 10em;
+	margin-right: 5%;
+	margin-left: 15%;
 	/* background-color: tomato;
 	border: 5px solid darkmagenta; */
 }
 
 .keyboardletter {
-	padding: 8px 12px;
+	padding: 6px 10px;
 	margin: 2px;
 	font-family: monospace;
 	font-size: 16px;
@@ -49,13 +52,18 @@ h1 {
 
 nav {
 	display: flex;
-	justify-content: center;
+	justify-content: space-evenly;
+}
+
+button {
+	border-radius: 10px;
 }
 
 nav button {
-	margin: 1em;
+	margin: 10px;
 	font-size: 16px;
-	width: 100%;
+	width: 50%;
+	padding: 3px 6px;
 }
 
 p {
@@ -205,6 +213,8 @@ p {
 .choosecategory {
 	color: brown;
 	font-weight: bold;
+	width: 100%;
+	text-align: center;
 }
 
 .categoryButtonColor {
@@ -220,42 +230,110 @@ p {
 	font-size: 24px;
 	font-weight: 600;
 	font-family: 'Kaushan Script', sans-serif;
-	margin-right: 4em;
-	height: 10em;
+	/* margin: 0; */
+	height: 50%;
+	/* border: 3px solid black; */
+	width: 60%;
 }
 
 .buttonHover:hover,
-.restart:hover {
+.cssreset:hover,
+.modalbuttons:hover {
 	background-color: paleturquoise;
+}
+
+.tracker {
+	position: absolute;
+	top: 0px;
+	right: 15px;
+	font-size: 18px;
+}
+
+#modal {
+	background-color: rgba(0, 0, 0, 0.4);
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+	z-index: 1;
+	overflow: auto;
+	display: none;
+}
+
+#gameRule {
+	background-color: white;
+	height: 500px;
+	width: 550px;
+	border-radius: 2px;
+	margin: 150px auto;
+	box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
+	padding: 2%;
+	line-height: 120%;
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+#gameRule p {
+	text-align: start;
+}
+
+#modal-footer {
+	text-align: right;
+}
+
+.modalbuttons {
+	padding: 14px 18px;
+	background-color: #677996;
+	border: none;
+	outline: none;
+	border-radius: 3px;
+	color: white;
+	font-family: Arial, Helvetica, sans-serif;
+	cursor: pointer;
+}
+
+#aboutGame {
+	bottom: 0;
+	left: 0;
+	padding: 5px;
+}
+
+.cssreset {
+	padding: 10px;
+	background-color: rgb(40, 112, 207);
+	border: none;
+	outline: none;
+	border-radius: 20px;
+	color: white;
+	font-family: Arial, Helvetica, sans-serif;
+	bottom: 20px;
+	width: 150px;
+	font-size: 20px;
+	margin-left: 300px;
+	margin-bottom: 30px;
+}
+
+h2 {
+	padding-bottom: 15px;
+	text-align: center;
+}
+
+.showresult {
+	display: flex;
+	flex-direction: column;
+	height: 30%;
 }
 
 /* responsive */
 main {
-	display: flex;
-	justify-content: space-around;
-	align-items: flex-start;
-	height: 25em;
+	height: 60%;
 }
 
 .playground {
 	display: flex;
 	flex-direction: column;
-	justify-content: center;
-}
-
-/* .animation {
-	width: 20%;
-	height: 20em;
-} */
-
-.restart {
-	/* position: relative; */
-	/* margin-top: 2em; */
-
-	font-size: 16px;
-	/* margin-left: 6em; */
-	/* background: chartreuse; */
-	height: 2em;
+	justify-content: space-evenly;
+	height: 100%;
 }
 
 body {
@@ -263,26 +341,28 @@ body {
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	max-width: 100%;
-	margin: auto;
+	height: 100vh;
+	width: 100%;
+	margin: 30px auto;
 	position: relative;
-	max-width: 900px;
+	max-width: 1000px;
 	min-width: 500px;
-	background: rgb(248, 228, 161);
+	background: rgb(243, 234, 154);
+	/* border: 5px solid black; */
 }
 
 footer {
 	display: flex;
-	width: 100%;
+	padding: 5px;
 	/* background: crimson; */
-	height: 5em;
-	justify-content: center;
+	justify-content: left;
 	align-items: center;
+	height: 15%;
+	width: 100%;
 }
 
 header {
-	height: 15em;
-	/* background: crimson; */
+	height: 20%;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -297,10 +377,4 @@ header {
 		display: flex;
 		flex-direction: column;
 	}
-}
-
-.tracker {
-	position: absolute;
-	top: 0px;
-	right: 0px;
 }

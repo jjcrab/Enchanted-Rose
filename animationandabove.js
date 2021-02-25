@@ -22,3 +22,11 @@ const petalNumber = document.querySelector('.petalnumber');
 const scoreNumber = document.querySelector('.scorenumber');
 
 let score = 0;
+
+//about game modal
+const aboutGame = document.getElementById('aboutGame');
+const modal = document.getElementById('modal');
+const closeModal = document.getElementById('close');
+
+aboutGame.addEventListener('click', () => (modal.style.display = 'block'));
+closeModal.addEventListener('click', () => (modal.style.display = 'none'));

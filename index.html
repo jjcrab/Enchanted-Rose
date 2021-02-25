@@ -24,7 +24,6 @@
     <main id="mainpart">
         <div class="playground">
             <section class="blankspaces">
-            <div class="word">
                 <p class="choosecategory">Choose your interested category and start playing!</p>
                 <div class="hiddenword"></div>
             </section>
@@ -57,8 +56,8 @@
             <button class="keyboardletter" data-letter="Z">Z</button>                
             </section>
             <section class="showresult">
-            <h4 class="happening">What's happening:</h4>
-            <p class="result"></p>
+                <h4 class="happening">What's happening:</h4>
+                <p class="result"></p>
             </section>
         </div>
         <div class="animation">
@@ -92,11 +91,29 @@
         </div>
     </main>    
     <footer>
-        <button type="reset" class="restart cssreset">New Game</button>
+        <div class="footerbutton">
+            <button class="modalbuttons" id="aboutGame">About the Game</button>
+        </div>
+        <div id="modal">
+            <div id="gameRule">
+                <h2>Learn to play Enchanted Rose</h2>
+                    <p>This game is inspired by the enchanted rose in Beauty and the Beast, which represents Faith in Love Forever. Let's get ready to help the Beast to save his rose!</p>
+                    <p>For the first round you will need to choose your interested category and a related word (s) will randomly assigned to you and will be hidden. All you need to do is guessing what is the word(s) and choose the letters of the word(s).</p> 
+                    <p>If the letter exists in the word(s), it will be revealed in the right spots. If not, one petal of the enchanted rose will fall. Game is over either you get all the right letters before all petals fall or all petals fall before you get the whole word(s).</p>
+                    <p>The enchanted rose has 7 petals which means you have 7 chances to get all the letters correct. Each petal is 10 point. If you save 2 petals you will have 20 points for that word(s). The score will roll over for your next word(s).</p>
+                    <p>After each round, you can pick other categories, or a different word from the same category will be assigned to the new game.</p>
+                <div id="modal-footer">
+                    <button class="modalbuttons" id="close" href="#">Close</button>
+                </div>
+            </div>
+        </div>
+        <div class="newgamefooter">
+            <button type="reset" class="restart cssreset">New Game</button>
+        </div>
     </footer>
     <script src="lists.js"></script>
     <script src="app.js"></script>
-    <script src="animationandscore.js"></script>
+    <script src="animationandabove.js"></script>
     <script src="pseudocode.js"></script>
 </body>
 </html>

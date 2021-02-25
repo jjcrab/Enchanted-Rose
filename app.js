@@ -34,7 +34,7 @@ const categories = [
 	},
 ];
 const chooseSaying = document.querySelector('.choosecategory');
-const word = document.querySelector('.word');
+const blankSpaces = document.querySelector('.blankspaces');
 const hiddenword = document.querySelector('.hiddenword');
 const keyboard = document.querySelector('.keyboard');
 const result = document.querySelector('.result');
@@ -122,7 +122,7 @@ function appendWord(arr, newArr) {
 			}
 		});
 
-		word.appendChild(hiddenword);
+		blankSpaces.appendChild(hiddenword);
 		hiddenword.classList.add('hidden');
 	});
 }

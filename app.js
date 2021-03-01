@@ -79,22 +79,64 @@ categories.forEach((category) => {
 
 //assign norepeat word(s)
 function assignAWord(arr, newArr) {
-	// refill the array when the last one assigned
-	if (arr.length == 1) {
-		rword = arr.pop();
-		newArr.push(rword);
-		for (let i = 0; i < newArr.length; i++) {
-			arr.push(newArr.pop());
-		}
-		return [arr, newArr, rword];
-	} else {
-		let randomIndex = Math.floor(Math.random() * arr.length);
-		rword = arr[randomIndex];
-		newArr.push(rword);
-		arr.splice(arr.indexOf(rword), 1);
-		return [arr, newArr, rword];
-	}
+  // refill the array when the last one assigned
+  if (arr.length == 1) {
+    rword = arr.pop();
+    newArr.push(rword);
+
+    // Here is where the problems begin...
+    // I think your intention was to loop over the entire newArr
+    // which now has all of the words in it and put them back into the
+    // original array.
+    // The problem is that you're using pop and that mutates your array so:
+    // 1. the length of newArr is not stable (it changes as you pop elements off)
+    // 2. you're emptying newArr which probably wasn't your intention since there's one
+    // more word to play.
+    for (let i = 0; i < newArr.length; i++) {
+      arr.push(newArr.pop());
+    }
+    return [arr, newArr, rword];
+  } else {
+    let randomIndex = Math.floor(Math.random() * arr.length);
+    rword = arr[randomIndex];
+    newArr.push(rword);
+    arr.splice(arr.indexOf(rword), 1);
+    return [arr, newArr, rword];
+  }
+
+  // But that's not the only problem leading to your bug...
+  // It's also because your code has a WET problem
+  // You're using the variables currentCategory and currentCategoryHolder
+  // only when you run the newGame button (everywhere else, the code is
+  // using some arrays that you pass around).  These variables are set
+  // ONCE when the category button is clicked, so if the user doesn't change
+  // categories, they are never updated.
 }
+// To fix your bug, rewrite the assignAWord function:
+
+// 1. Check if the arr.length is 0 (why do this on 1? instead just refill when it's empty)
+// 2. If it's empty, copy the newArr to arr and set the length of newArr to 0
+// 3. Set currentCategory = arr;
+// 4. Set currentCategoryHolder = newArr;
+// 5. Then run your code that gets the randomIndex etc.
+// STEP 5 always runs.  It's not an else any more.
+// So, the new function looks like this instead of the code you have:
+
+/*
+function assignAWord(arr, newArr) {
+  if (arr.length === 0) {
+    arr = [...newArr] // this is a helpful shortcut to copy all elements from an array
+    newArr.length = 0 // empty the newArr
+    currentCategory = arr; // point currentCategory to arr
+    currentCategoryHolder = newArr; // point currentCategoryHolder to newArr
+  }
+  const randomIndex = Math.floor(Math.random() * arr.length);
+  rword = arr[randomIndex];
+  newArr.push(rword);
+  arr.splice(arr.indexOf(rword), 1);
+  return [arr, newArr, rword];
+}
+*/
 //append word(s) and differentiate letter and spaces
 function appendWord(arr, newArr) {
 	chooseSaying.style.display = 'none';

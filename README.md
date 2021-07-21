@@ -24,7 +24,7 @@ The game is called Enchanted-Rose. Computer randomly assigns word (s) that will 
 - As a player, if I don't choose category then will still be the same category after hitting the reset(play next/ new agame/ try again) button and assign a different word(s); if I choose another category then will assign a word(s) from different category.
 - As a developer, when player first come to this page and first time play, I want the keyboard is not functioning until the player choose one category to start.
 - As a developer, I don't want the keyboard is functioning after game is over, until a new game starts.
-- As a developer, I don't want the player can switch other category after they player start clicking the keyboard.
+- As a developer, I don't want the player can switch other category after the player start clicking the keyboard.
 - As a player, I want to see a different color of the category button everytime I choose/click, and should be only one button shows the differnt color everytime as the chosen category.
 - As a player, I only want to see reset(play next/ new agame/ try again) button and the "what's happening" after I start cliking the keyboard.
 - As a player, I want the webpage to be responsive with the screen size.
